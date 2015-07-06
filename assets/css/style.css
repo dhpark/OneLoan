@@ -98,14 +98,14 @@ table tr th { color: #688a7e;}
   -o-background-size: cover;
   background-size: cover;
 }
-.login-img3-body{
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(../img/piggybank.jpg) no-repeat;
+/*.login-img3-body{
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,0.3))), assets/img/backdrop.jpg no-repeat;
   -webkit-background-size: cover;
   opacity: 0.9;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+}*/
 
 .login-form {
     max-width: 350px;
