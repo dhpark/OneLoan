@@ -25,6 +25,7 @@ h1{
     margin-top: -10px;
     font-weight: 400;
     text-align: center;
+    color: #9C0816;
 }
 h4{
     margin-bottom: 20px;
@@ -76,7 +77,7 @@ table tr th { color: #688a7e;}
     padding-top: 10px;
 }
 .lite{
-    color: #00a0df !important;
+    color: #003A6F !important;
 }
 
 /*login page*/
