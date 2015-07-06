@@ -358,7 +358,7 @@ ul.sidebar-menu li a.active i {
 
 a.logo {
     font-size: 21px;
-    color: #2e2e2e;
+    color: #9C0816;
     float: left;
     margin-top: 15px;
     text-transform: uppercase;
@@ -370,7 +370,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #9C0816;
+    color: #2e2e2e;
 }
 
 
