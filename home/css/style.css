@@ -171,7 +171,7 @@ a, a:hover, a:focus {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: #2a3542;
+    background: #004977;
 }
 
 #sidebar ul li {
@@ -229,7 +229,7 @@ ul.sidebar-menu {
 }
 
 ul.sidebar-menu li ul.sub li{
-    background: #35404D;
+    background: #004977;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -293,7 +293,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #35404d;
+    background: #004977;
     color: #fff;
     display: block;
     border-radius: 4px;
@@ -370,7 +370,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #FF6C60;
+    color: #9C0816;
 }
 
 
