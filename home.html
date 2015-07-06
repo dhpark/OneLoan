@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="/resources/img/favicon.png">
+
+    <title>Dashboard | Allowance</title>
+
+    <!-- Bootstrap CSS -->    
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="./resources/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    
+    <!-- font icon -->
+    <link href="./resources/css/elegant-icons-style.css" rel="stylesheet">
+    <link href="./resources/css/font-awesome.min.css" rel="stylesheet">    
+    <!-- full calendar css-->
+    <link href="./resources/assets/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet">
+    <link href="./resources/assets/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <!-- easy pie chart-->
+    <link href="./Dashboard _ Allowance_files/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="./Dashboard _ Allowance_files/owl.carousel.css" type="text/css">
+    <link href="./resources/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./resources/css/fullcalendar.css">
+    <link href="./resources/css/widgets.css" rel="stylesheet">
+    <link href="./resources/css/style.css" rel="stylesheet">
+    <link href="./resources/css/style-responsive.css" rel="stylesheet">
+    <link href="./resources/css/xcharts.min.css" rel=" stylesheet"> 
+    <link href="./resources/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <script src="js/lte-ie7.js"></script>
+    <![endif]-->
+    <script src="./Dashboard _ Allowance_files/js"></script><script src="./Dashboard _ Allowance_files/main.js"></script><style type="text/css"></style><script src="./Dashboard _ Allowance_files/drawing.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery-2.0.3.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/parse-1.2.13.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/sweet-alert.css">
+    <script src="./Dashboard _ Allowance_files/main(1).js"></script>
+    <script type="text/javascript">
+        var lat;
+        var lon;
+        var currentUser = getCookie("username");
+        var currentAllowance = -1;
+        Parse.initialize("zzdE55sBIepHMixSzU0qrjyTksfhO8WrcoYq7aFD",
+        "u9jsLS5Njj9UC0RsEyRIdUcOzB91vSiBnf3RZbpT");
+        function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        };
+        function loadAvailableMoney(){
+          Parse.Cloud.run("getTotalAvailableMoney", {"receiverId":currentUser, "lat" : lat, "lon" : lon}, {
+                success: function(result){
+                  currentAllowance = result;
+                    $("#moneyLeft").html("$" + result);
+                },
+                failure: function(error){
+                  alert(error);
+                }
+            });
+        }
+        navigator.geolocation.getCurrentPosition(function(position) {
+                            lat = position.coords.latitude;
+                            lon = position.coords.longitude;
+                            loadAvailableMoney();
+            });
+            
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+             
+
+            $(document).ready(function(){
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){}
+                swal({   title: "Want to make a transaction?",   text: "It will take you away from the website!",   type: "info",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes!",   closeOnConfirm: false }, function(){   
+                    
+                    $("button .confirm").attr('value', currentUser);
+                    if(currentAllowance == 0){
+                        alert("Error: Insufficient Funds.");
+                    } else {
+                       lat = lat.toString().replace(".", "%2E");
+                        lon = lon.toString().replace(".", "%2E");
+                        var url = "allowance://allowance.com/?accountName="+currentUser+"&lat="+lat+"&lon="+lon;
+                        alert(url);
+                        //window.location.href = url;
+                        window.location = url; 
+                    }
+                    
+                });
+            })
+        }
+    </script>
+  <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;display: block;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;padding: 5px 5px 8px 5px;font: 10px arial, san serif;text-align: left;}</style><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/21/6/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/21/6/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/21/6/stats.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2Fwww.terpconnect.umd.edu%2F~iseeman%2Fdash.html&5e1&callback=_xdc_._obiu18&token=54386"></script></head>
+
+  <body class=" hasGoogleVoiceExt">
+  <!-- container section start -->
+  <section id="container" class="">      
+      <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            <!--logo start-->
+            <a href="./Dashboard _ Allowance_files/Dashboard _ Allowance.html" class="logo">Allow<span class="lite">ance</span></a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+                <!--  search form start -->
+                <ul class="nav top-menu">                    
+                    <li>
+                        <form class="navbar-form">
+                            <input class="form-control" placeholder="Search" type="text">
+                        </form>
+                    </li>                    
+                </ul>
+                <!--  search form end -->                
+            </div>
+
+            <div class="top-nav notification-row">                
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+                    <!-- task notificatoin start -->
+                    <li id="task_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="./resources/dash.html#">
+                            <span class="icon-task-l">
+                            <span class="badge bg-important">6</span>
+                        </span></a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">You have 6 current allowances!</p>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Alice's Weekly</div>
+                                        <div class="percent">90%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                            <span class="sr-only">90% Used (success)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <div class="task-info">
+                                        <div class="desc">
+                                           John's College Fund
+                                        </div>
+                                        <div class="percent">30%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                            <span class="sr-only">30% Used (warning)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <div class="task-info">
+                                        <div class="desc">John's Wardrobe</div>
+                                        <div class="percent">80%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Used</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Family Groceries</div>
+                                        <div class="percent">78%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%">
+                                            <span class="sr-only">78% Used (danger)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Grandpa Living</div>
+                                        <div class="percent">50%</div>
+                                    </div>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                            <span class="sr-only">50% Used</span>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="external">
+                                <a href="./resources/dash.html#">See All Transactions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- task notificatoin end -->
+                    <!-- inbox notificatoin start-->
+                    <li id="mail_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="./resources/dash.html#">
+                            <i class="icon-envelope-l"></i>
+                            <span class="badge bg-important">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">You have 5 new notifications</p>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="photo"><img alt="avatar" src="./Dashboard _ Allowance_files/avatar-mini.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Alice</span>
+                                    <span class="time">1 min</span>
+                                    </span>
+                                    <span class="message">
+                                        Spent $10.53 at TARGET
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="photo"><img alt="avatar" src="./Dashboard _ Allowance_files/avatar-mini2.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Bob Mckenzie</span>
+                                    <span class="time">5 mins</span>
+                                    </span>
+                                    <span class="message">
+                                     Hi, do you need more money?
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="photo"><img alt="avatar" src="./Dashboard _ Allowance_files/avatar-mini3.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">John</span>
+                                    <span class="time">2 days</span>
+                                    </span>
+                                    <span class="message">
+                                        Spent $4.92 at PACSUN
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="photo"><img alt="avatar" src="./Dashboard _ Allowance_files/avatar-mini4.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Ray Munoz</span>
+                                    <span class="time">3 day</span>
+                                    </span>
+                                    <span class="message">
+                                        Sent you $450.00 for 'Business Trip'
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">See all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox notificatoin end -->
+                    <!-- alert notification start-->
+                    <li id="alert_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="./resources/dash.html#">
+
+                            <i class="icon-bell-l"></i>
+                            <span class="badge bg-important">7</span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">You have 4 new notifications</p>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="label label-primary"><i class="icon_profile"></i></span> 
+                                    Friend Request
+                                    <span class="small italic pull-right">5 mins</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="label label-warning"><i class="icon_pin"></i></span>  
+                                    John location.
+                                    <span class="small italic pull-right">50 mins</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="label label-danger"><i class="icon_book_alt"></i></span> 
+                                    Project 3 Completed.
+                                    <span class="small italic pull-right">1 hr</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#">
+                                    <span class="label label-success"><i class="icon_like"></i></span> 
+                                    Mick appreciated your work.
+                                    <span class="small italic pull-right"> Today</span>
+                                </a>
+                            </li>                            
+                            <li>
+                                <a href="./resources/dash.html#">See all notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- alert notification end-->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="./resources/dash.html#">
+                            <span class="profile-ava">
+                                <img alt="" src="./Dashboard _ Allowance_files/avatar1_small.jpg">
+                            </span>
+                            <span class="username"></span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="./resources/dash.html#"><i class="icon_profile"></i> My Profile</a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#"><i class="icon_mail_alt"></i> My Inbox</a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#"><i class="icon_clock_alt"></i> Timeline</a>
+                            </li>
+                            <li>
+                                <a href="./resources/dash.html#"><i class="icon_chat_alt"></i> Chats</a>
+                            </li>
+                            <li>
+                                <a href="./resources/login.html"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                            <li>
+                                <a href="./resources/documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                            </li>
+                            <li>
+                                <a href="./resources/documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+      </header>      
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar" class="nav-collapse " style="overflow: hidden; outline: none;" tabindex="5000">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+                 <li>
+                      <a class="" href="./resources/profile.html">
+                          <i class="icon_profile"></i>
+                          <span>Profile</span>
+                      </a>
+                  </li>
+
+                  <li class="active">
+                      <a class="" href="./Dashboard _ Allowance_files/Dashboard _ Allowance.html">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Allowances</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="./resources/giving-money.html">Send Allowance</a></li>                          
+                          <li><a class="" href="./resources/form_validation.html">Request Allowance</a></li>
+                      </ul>
+                  </li> 
+                  <li class="">
+                      <a class="" href="./resources/spending-money.html">
+                          <i class="icon_cart"></i>
+                          <span>Spend Allowance</span>
+                      </a>
+                  </li>
+                  <li>                     
+                      <a class="" href="./resources/chart-chartjs.html">
+                          <i class="icon_piechart"></i>
+                          <span>Statistics</span>
+                          
+                      </a>
+                                         
+               <!-- </li>      
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>UI Fitures</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="general.html">Elements</a></li>
+                          <li><a class="" href="buttons.html">Buttons</a></li>
+                          <li><a class="" href="grids.html">Grids</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a class="" href="widgets.html">
+                          <i class="icon_genius"></i>
+                          <span>Widgets</span>
+                      </a>
+                  </li>
+                  
+                             
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_table"></i>
+                          <span>Tables</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="basic_table.html">Basic Table</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Pages</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">                          
+                          <li><a class="" href="profile.html">Profile</a></li>
+                          <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                          <li><a class="" href="blank.html">Blank Page</a></li>
+                          <li><a class="" href="404.html">404 Error</a></li>
+                      </ul>
+                  </li> -->
+                  
+              </li></ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">            
+              <!--overview start-->
+              <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="./Dashboard _ Allowance_files/Dashboard _ Allowance.html">Home</a></li>
+                        <li><i class="fa fa-laptop"></i>Dashboard</li>                          
+                    </ol>
+                </div>
+            </div>
+              
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box blue-bg">
+                        <i class="icon_wallet"></i>
+                        <div class="count"><div id="moneyLeft">$668</div><br>
+                            <h5 style="text-align: right"> AMOUNT AVAILABLE </h5><h5></h5></div>                    
+                    </div><!--/.info-box-->         
+                </div><!--/.col-->
+                
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box brown-bg">
+                        <i class="icon_mail_alt"></i>
+                        <div class="count">$125<br>
+                            <h5 style="text-align: right">PENDING ALLOWANCES</h5><h5></h5></div>                
+                    </div><!--/.info-box-->         
+                </div><!--/.col-->  
+                
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box dark-bg">
+                        <i class="fa fa-shopping-cart"></i>
+                        <div class="count">$436<br>
+                            <h5 style="text-align: right"> AMOUNT SPENT (this month) </h5><h5></h5></div>                  
+                    </div><!--/.info-box-->         
+                </div><!--/.col-->
+                
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box green-bg">
+                        <i class="fa fa-cubes"></i>
+                        <div class="count">16
+                            <h5 style="text-align: right; margin-bottom: -10px;"> TRANSACTIONS (this month)</h5><h5></h5></div>                
+                    </div><!--/.info-box-->         
+                </div><!--/.col-->
+                
+            </div><!--/.row-->
+        
+            
+           <div class="row" style="margin-left:0px; margin-right:0px;overflow:hidden;">
+
+                <div class="col-lg-7">
+                      <!--Project Activity start-->
+                      <section class="panel">
+                          <div class="panel-body progress-panel">
+                            <div class="row">
+                              <div class="col-lg-8 task-progress pull-left">
+                                  <h1>Recent Transactions</h1>                                  
+                              </div>
+                              <div class="col-lg-4">
+                                <span class="profile-ava pull-right">
+                                        <img alt="" class="simple" src="./Dashboard _ Allowance_files/avatar1_small.jpg">
+                                        
+                                </span>                                
+                              </div>
+                            </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+                              <tr>
+                                  <td>Today</td>
+                                  <td>
+                                      Alice's Weekly Allowance
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-important">Unused</span>
+                                  </td>
+                                  <td>
+                                    <div id="work-progress4"><canvas width="26" height="22" style="display: inline-block; width: 26px; height: 22px; vertical-align: top;"></canvas></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Yesterday</td>
+                                  <td>
+                                      John's Textbooks
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-success">Partially Used</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress2"><canvas width="26" height="22" style="display: inline-block; width: 26px; height: 22px; vertical-align: top;"></canvas></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>April 8th, 2015</td>
+                                  <td>
+                                      Alice at Mall
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-primary">Used</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress3"><canvas width="26" height="22" style="display: inline-block; width: 26px; height: 22px; vertical-align: top;"></canvas></div>
+                                  </td>
+                              </tr>                              
+                              <tr>
+                                  <td>April 7th, 2015</td>
+                                  <td>
+                                      Bob Buys Groceries
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-primary">Used</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress2"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>April 6th, 2015</td>
+                                  <td>
+                                      Grandma's Birthday Present
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-important">Unused</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress2"></div>
+                                  </td>
+                              </tr>                              
+                              <tr>
+                                  <td>April 6th, 2015</td>
+                                  <td>
+                                      John: new socks
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-primary">Used</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress5"><canvas width="26" height="22" style="display: inline-block; width: 26px; height: 22px; vertical-align: top;"></canvas></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Last week</td>
+                                  <td>
+                                      John Buys Groceries
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-primary">Used</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress1"><canvas width="47" height="20" style="display: inline-block; width: 47px; height: 20px; vertical-align: top;"></canvas></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Last month</td>
+                                  <td>
+                                      Alice's College Fees
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-success">Partially Used</span>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress1"></div>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--Project Activity end-->
+                  </div>
+    
+
+              <!-- project team & activity start -->
+          <div class="row">
+            <div class="col-md-4 portlets">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="pull-left">Quick Transaction</div>
+                  <div class="widget-icons pull-right">
+                    <a href="./resources/dash.html#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+                    <a href="./resources/dash.html#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                  <div class="padd">
+                    
+                      <div class="form quick-post">
+                                      <!-- Edit profile form (not working)-->
+                                      <form class="form-horizontal">
+                                          <!-- Title -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="title">Description</label>
+                                            <div class="col-lg-8" style="margin-left: 30px"> 
+                                              <input type="text" class="form-control" id="title">
+                                            </div>
+                                          </div>   
+                                          <!-- Content -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="title">Recipient</label>
+                                            <div class="col-lg-8" style="margin-left: 30px"> 
+                                              <input type="text" class="form-control" id="title">
+                                            </div>
+                                          </div> 
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="title">Amount</label>
+                                            <div class="col-lg-8" style="margin-left: 30px"> 
+                                              <input type="text" class="form-control" id="title">
+                                            </div>
+                                          </div> 
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="title">Start</label>
+                                            <div class="col-lg-8" style="margin-left: 30px"> 
+                                              <input type="text" class="form-control" id="title">
+                                            </div>
+                                          </div> 
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="title">End</label>
+                                            <div class="col-lg-8" style="margin-left: 30px"> 
+                                              <input type="text" class="form-control" id="title">
+                                            </div>
+                                          </div>                       
+                                          
+                                          <!-- Buttons -->
+                                          <div class="form-group">
+                                             <!-- Buttons -->
+                                             <div class="col-lg-offset-2 col-lg-9">
+                                                <button type="submit" class="btn btn-primary">Send</button>
+                                                <button type="submit" class="btn btn-danger" style="margin-left: 1%; margin-right: 1%;">Save Draft</button>
+                                                <button type="reset" class="btn btn-default">Reset</button>
+                                             </div>
+                                          </div>
+                                      </form>
+                                    </div>
+                  
+
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            </div>
+
+            
+        
+        <div class="row">
+            <div class="col-md-7 portlets">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h2><strong>Calendar</strong></h2>
+                <div class="panel-actions">
+                    <a href="./resources/dash.html#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+                    <a href="./resources/dash.html#" class="wclose"><i class="fa fa-times"></i></a>
+                </div>  
+                 
+                </div><br><br><br>
+                <div class="panel-body">
+                  <!-- Widget content -->
+                  
+                    <!-- Below line produces calendar. I am using FullCalendar plugin. -->
+                    <div id="calendar" class="fc"><table class="fc-header" style="width:100%"><tbody><tr><td class="fc-header-left"><span class="fc-button fc-button-prev fc-state-default fc-corner-left"><span class="fc-button-inner"><span class="fc-button-content">&nbsp;◄&nbsp;</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-button fc-button-next fc-state-default fc-corner-right"><span class="fc-button-inner"><span class="fc-button-content">&nbsp;►&nbsp;</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-header-space"></span><span class="fc-button fc-button-today fc-state-default fc-corner-left fc-corner-right fc-state-disabled"><span class="fc-button-inner"><span class="fc-button-content">today</span><span class="fc-button-effect"><span></span></span></span></span></td><td class="fc-header-center"><span class="fc-header-title"><h2>July 2015</h2></span></td><td class="fc-header-right"><span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active"><span class="fc-button-inner"><span class="fc-button-content">month</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-button fc-button-basicWeek fc-state-default"><span class="fc-button-inner"><span class="fc-button-content">week</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-button fc-button-basicDay fc-state-default fc-corner-right"><span class="fc-button-inner"><span class="fc-button-content">day</span><span class="fc-button-effect"><span></span></span></span></span></td></tr></tbody></table><div class="fc-content" style="position: relative; min-height: 1px;"><div class="fc-view fc-view-month fc-grid" style="position: relative;" unselectable="on"><table class="fc-border-separate" style="width:100%" cellspacing="0"><thead><tr class="fc-first fc-last"><th class="fc-sun fc-widget-header fc-first" style="width: 117px;">Sun</th><th class="fc-mon fc-widget-header" style="width: 117px;">Mon</th><th class="fc-tue fc-widget-header" style="width: 117px;">Tue</th><th class="fc-wed fc-widget-header" style="width: 117px;">Wed</th><th class="fc-thu fc-widget-header" style="width: 117px;">Thu</th><th class="fc-fri fc-widget-header" style="width: 117px;">Fri</th><th class="fc-sat fc-widget-header fc-last">Sat</th></tr></thead><tbody><tr class="fc-week0 fc-first"><td class="fc-sun fc-widget-content fc-day0 fc-first fc-other-month"><div style="min-height: 99px;"><div class="fc-day-number">28</div><div class="fc-day-content"><div style="position: relative; height: 40px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day1 fc-other-month"><div><div class="fc-day-number">29</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day2 fc-other-month"><div><div class="fc-day-number">30</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day3"><div><div class="fc-day-number">1</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day4"><div><div class="fc-day-number">2</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day5"><div><div class="fc-day-number">3</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day6 fc-last"><div><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week1"><td class="fc-sun fc-widget-content fc-day7 fc-first"><div style="min-height: 98px;"><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position: relative; height: 40px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day8 fc-state-highlight fc-today"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day9"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day10"><div><div class="fc-day-number">8</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day11"><div><div class="fc-day-number">9</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day12"><div><div class="fc-day-number">10</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day13 fc-last"><div><div class="fc-day-number">11</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week2"><td class="fc-sun fc-widget-content fc-day14 fc-first"><div style="min-height: 98px;"><div class="fc-day-number">12</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day15"><div><div class="fc-day-number">13</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day16"><div><div class="fc-day-number">14</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day17"><div><div class="fc-day-number">15</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day18"><div><div class="fc-day-number">16</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day19"><div><div class="fc-day-number">17</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day20 fc-last"><div><div class="fc-day-number">18</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week3"><td class="fc-sun fc-widget-content fc-day21 fc-first"><div style="min-height: 98px;"><div class="fc-day-number">19</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day22"><div><div class="fc-day-number">20</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day23"><div><div class="fc-day-number">21</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day24"><div><div class="fc-day-number">22</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day25"><div><div class="fc-day-number">23</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day26"><div><div class="fc-day-number">24</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day27 fc-last"><div><div class="fc-day-number">25</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week4"><td class="fc-sun fc-widget-content fc-day28 fc-first"><div style="min-height: 98px;"><div class="fc-day-number">26</div><div class="fc-day-content"><div style="position: relative; height: 20px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day29"><div><div class="fc-day-number">27</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day30"><div><div class="fc-day-number">28</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day31"><div><div class="fc-day-number">29</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day32"><div><div class="fc-day-number">30</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day33"><div><div class="fc-day-number">31</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day34 fc-last fc-other-month"><div><div class="fc-day-number">1</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week5 fc-last"><td class="fc-sun fc-widget-content fc-day35 fc-first fc-other-month"><div style="min-height: 97px;"><div class="fc-day-number">2</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day36 fc-other-month"><div><div class="fc-day-number">3</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day37 fc-other-month"><div><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day38 fc-other-month"><div><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day39 fc-other-month"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day40 fc-other-month"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day41 fc-last fc-other-month"><div><div class="fc-day-number">8</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr></tbody></table><div style="position:absolute;z-index:8;top:0;left:0"><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 354px; width: 472px; top: 44px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-title">Long Event</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 354px; width: 110px; top: 64px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-title">All Day Event</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 588px; width: 110px; top: 64px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-time">4p</span><span class="fc-event-title">Repeating Event</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 120px; width: 110px; top: 144px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-time">10:30a</span><span class="fc-event-title">Meeting</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 588px; width: 110px; top: 144px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-time">4p</span><span class="fc-event-title">Repeating Event</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 237px; width: 110px; top: 144px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-time">7p</span><span class="fc-event-title">Birthday Party</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 120px; width: 110px; top: 164px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-time">12p</span><span class="fc-event-title">Lunch</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><a href="http://google.com/" class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 237px; width: 227px; top: 441px;"><div class="fc-event-inner fc-event-skin"><span class="fc-event-title">Click for Google</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></a></div></div></div></div>
+                  
+                </div>
+              </div> 
+               
+            </div>
+
+            <div class="col-md-4 portlets">
+              <!-- Widget -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="pull-left">Message</div>
+                  <div class="widget-icons pull-right">
+                    <a href="./resources/dash.html#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+                    <a href="./resources/dash.html#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="panel-body">
+                  <!-- Widget content -->
+                  <div class="padd sscroll">
+                    
+                    <ul class="chats">
+
+                      <!-- Chat by us. Use the class "by-me". -->
+                      <li class="by-me">
+                        <!-- Use the class "pull-left" in avatar -->
+                        <div class="avatar pull-left">
+                          <img src="./Dashboard _ Allowance_files/user.jpg" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                          <!-- In meta area, first include "name" and then "time" -->
+                          <div class="chat-meta">John Smith <span class="pull-right">3 hours ago</span></div>
+                          Hey mom! I need more money for college than I thought. Can you send me about $100 more
+                          to spend at the university store?
+                          <div class="clearfix"></div>
+                        </div>
+                      </li> 
+
+                      <!-- Chat by other. Use the class "by-other". -->
+                      <li class="by-other">
+                        <!-- Use the class "pull-right" in avatar -->
+                        <div class="avatar pull-right">
+                          <img src="./Dashboard _ Allowance_files/user22.png" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                          <!-- In the chat meta, first include "time" then "name" -->
+                          <div class="chat-meta">3 hours ago <span class="pull-right">Ella Smith</span></div>
+                          John I have already given you $500 for only three textbooks.
+                          <div class="clearfix"></div>
+                        </div>
+                      </li>   
+
+                      <li class="by-me">
+                        <div class="avatar pull-left">
+                          <img src="./Dashboard _ Allowance_files/user.jpg" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                          <div class="chat-meta">John Smith <span class="pull-right">4 hours ago</span></div>
+                          MOM I just want to get a Raspberry Pi for my hackathon
+                          <div class="clearfix"></div>
+                        </div>
+                      </li>  
+
+                      <li class="by-other">
+                        <!-- Use the class "pull-right" in avatar -->
+                        <div class="avatar pull-right">
+                          <img src="./Dashboard _ Allowance_files/user22.png" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                          <!-- In the chat meta, first include "time" then "name" -->
+                          <div class="chat-meta">3 hours ago <span class="pull-right">Ella Smith</span></div>
+                          You can take that money out of your food allowance next week.
+                          <div class="clearfix"></div>
+                        </div>
+                      </li>                                                                                  
+
+                    </ul>
+
+                  </div>
+                  <!-- Widget footer -->
+                  <div class="widget-foot">
+                      
+                      <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Type your message here...">
+                        </div>
+                        <button type="submit" class="btn btn-info">Send</button>
+                      </form>
+
+
+                  </div>
+                </div>
+
+
+              </div> 
+            </div>
+            
+                 
+                        
+          </div>               <!-- project team & activity end -->
+
+          </div></section>
+      </section>
+      <!--main content end-->
+  </section>
+  <!-- container section start -->
+
+    <!-- javascripts -->
+    <script src="./Dashboard _ Allowance_files/jquery.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery-ui-1.10.4.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./Dashboard _ Allowance_files/jquery-ui-1.9.2.custom.min.js"></script>
+    <!-- bootstrap -->
+    <script src="./Dashboard _ Allowance_files/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="./Dashboard _ Allowance_files/jquery.scrollTo.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- charts scripts -->
+    <script src="./Dashboard _ Allowance_files/jquery.knob.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.sparkline.js" type="text/javascript"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.easy-pie-chart.js"></script>
+    <script src="./Dashboard _ Allowance_files/owl.carousel.js"></script>
+    <!-- jQuery full calendar -->
+    &lt;<script src="./Dashboard _ Allowance_files/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+    <script src="./Dashboard _ Allowance_files/fullcalendar.js"></script>
+    <!--script for this page only-->
+    <script src="./Dashboard _ Allowance_files/calendar-custom.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.rateit.min.js"></script>
+    <!-- custom select -->
+    <script src="./Dashboard _ Allowance_files/jquery.customSelect.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/Chart.js"></script>
+   
+    <!--custome script for all page-->
+    <script src="./Dashboard _ Allowance_files/scripts.js"></script>
+    <!-- custom script for this page-->
+    <script src="./Dashboard _ Allowance_files/sparkline-chart.js"></script>
+    <script src="./Dashboard _ Allowance_files/easy-pie-chart.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./Dashboard _ Allowance_files/xcharts.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.autosize.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.placeholder.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/gdp-data.js"></script>  
+    <script src="./Dashboard _ Allowance_files/morris.min.js"></script>
+    <script src="./Dashboard _ Allowance_files/sparklines.js"></script>    
+    <script src="./Dashboard _ Allowance_files/charts.js"></script>
+    <script src="./Dashboard _ Allowance_files/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" scr="js/memberprofile-script.js"></script>
+  <script>
+
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw' : function () { 
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+          $("#owl-slider").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true
+
+          });
+      });
+
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+      
+      /* ---------- Map ---------- */
+    $(function(){
+      $('#map').vectorMap({
+        map: 'world_mill_en',
+        series: {
+          regions: [{
+            values: gdpData,
+            scale: ['#000', '#000'],
+            normalizeFunction: 'polynomial'
+          }]
+        },
+        backgroundColor: '#eef3f7',
+        onLabelShow: function(e, el, code){
+          el.html(el.html()+' (GDP - '+gdpData[code]+')');
+        }
+      });
+    });
+
+
+
+  </script>
+
+  
+
+<div id="ascrail2000" class="nicescroll-rails" style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 1; background: rgb(247, 247, 247);"><div style="position: relative; top: 12px; float: right; width: 6px; height: 934px; border-radius: 10px; background-color: rgb(0, 122, 255); background-clip: padding-box;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 1; background: rgb(247, 247, 247);"><div style="position: relative; top: 0px; height: 6px; width: 1712px; border-radius: 10px; background-color: rgb(0, 122, 255); background-clip: padding-box;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 1274px; display: none; background: rgb(247, 247, 247);"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(0, 122, 255); background-clip: padding-box;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(247, 247, 247);"><div style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(0, 122, 255); background-clip: padding-box;"></div></div><div class="jvectormap-label"></div></body></html>
