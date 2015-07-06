@@ -358,7 +358,7 @@ ul.sidebar-menu li a.active i {
 
 a.logo {
     font-size: 21px;
-    color: #2e2e2e;
+    color: #9C0816;
     float: left;
     margin-top: 15px;
     text-transform: uppercase;
@@ -370,7 +370,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #9C0816;
+    color: #004977 !important;
 }
 
 
@@ -2849,8 +2849,8 @@ ul.amounts li {
 }
 
 .fc-event-skin {
-    background-color: #6883a3 !important;
-    border-color: #6883a3 !important;
+    background-color: #6883a3 ;
+    border-color: #6883a3 ;
     color: #FFFFFF !important;
 }
 

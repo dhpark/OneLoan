@@ -16,6 +16,7 @@
     <link href="css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
     <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/bootstrap-fullcalendar.css" rel="stylesheet" />
     <link href="css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 
@@ -264,7 +265,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="img/avatar1_small.jpg">
-                            <span class="username">Jhon Doue</span>
+                            <span class="username">John Park</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -364,9 +365,140 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              
-              
-              
+              <div class="row">
+                
+<div class="col-lg-12">
+                      <!--work progress start-->
+                      <section class="panel">
+                          <div class="panel-body progress-panel">
+                              <div class="task-progress">
+                                  <h1>Work Progress</h1>
+                                  <p>John Park</p>
+                              </div>
+                              <div class="task-option">
+                                  <select class="styled hasCustomSelect" style="-webkit-appearance: menulist-button; width: 103px; position: absolute; opacity: 0; height: 39px; font-size: 11.9999990463257px;">
+                                      <option>John Park</option>
+                                      <option>Tom Crouse</option>
+                                      <option>Jhon Due</option>
+                                  </select><span class="customSelect styled hasCustomSelect" style="-webkit-appearance: menulist-button; width: 103px; position: absolute; opacity: 0; height: 39px; font-size: 12px; display: inline-block;"><span class="customSelectInner" style="width: 100px; display: inline-block;">John Park</span></span><span class="customSelect styled" style="display: inline-block;"><span class="customSelectInner" style="width: 81px; display: inline-block;">John Park</span></span>
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td>
+                                      Auto
+                                  </td>
+                                  <td>
+                                      <div class="progress">
+  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    70% Complete 
+  </div>
+</div>
+                                  </td>
+                                  <td>
+                                    <div id="work-progress1"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>2</td>
+                                  <td>
+                                      Home
+                                  </td>
+                                  <td>
+                                      <div class="progress">
+  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+  aria-valuemin="0" aria-valuemax="100" style="width:60%">
+    60% Complete
+  </div>
+</div>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress2"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>3</td>
+                                  <td>
+                                      Student
+                                  </td>
+                                  <td>
+                                      <div class="progress">
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+  aria-valuemin="0" aria-valuemax="100" style="width:50%">
+    50% Complete 
+  </div>
+</div>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress3"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>4</td>
+                                  <td>
+                                      Business
+                                  </td>
+                                  <td>
+                                  <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+  aria-valuemin="0" aria-valuemax="100" style="width:40%">
+    40% Complete
+  </div>
+  </div>
+                                  </td>
+                                  <td>
+                                      <div id="work-progress4"></div>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+
+                      </section>
+                      <!--work progress end-->
+                  </div>
+              </div>
+<div class="row">
+                  <aside class="col-lg-3">
+                      <h4 class="drg-event-title"> Draggable Events</h4>
+                      <div id="external-events">
+                          <div class="external-event label label-primary ui-draggable" style="position: relative;">Tax Events</div>
+                          <div class="external-event label label-success ui-draggable" style="position: relative;">Loan Events</div>
+                          <div class="external-event label label-info ui-draggable" style="position: relative;">Interviews</div>
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <p class="border-top drp-rmv">
+                              <input type="checkbox" id="drop-remove">
+                              remove after drop
+                          </p>
+                      </div>
+                  </aside>
+                  <aside class="col-lg-9">
+                      <section class="panel">
+                          <div class="panel-body">
+                              <div id="calendar" class="has-toolbar fc"><table class="fc-header" style="width:100%"><tbody><tr><td class="fc-header-left"><span class="fc-button fc-button-prev fc-state-default fc-corner-left"><span class="fc-button-inner"><span class="fc-button-content">&nbsp;◄&nbsp;</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-button fc-button-next fc-state-default fc-corner-right"><span class="fc-button-inner"><span class="fc-button-content">&nbsp;►&nbsp;</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-header-space"></span><span class="fc-button fc-button-today fc-state-default fc-corner-left fc-corner-right fc-state-disabled"><span class="fc-button-inner"><span class="fc-button-content">today</span><span class="fc-button-effect"><span></span></span></span></span></td><td class="fc-header-center"><span class="fc-header-title"><h2>July 2015</h2></span></td><td class="fc-header-right"><span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active"><span class="fc-button-inner"><span class="fc-button-content">month</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-button fc-button-basicWeek fc-state-default"><span class="fc-button-inner"><span class="fc-button-content">week</span><span class="fc-button-effect"><span></span></span></span></span><span class="fc-button fc-button-basicDay fc-state-default fc-corner-right"><span class="fc-button-inner"><span class="fc-button-content">day</span><span class="fc-button-effect"><span></span></span></span></span></td></tr></tbody></table><div class="fc-content" style="position: relative; min-height: 1px;"><div class="fc-view fc-view-month fc-grid" style="position: relative;" unselectable="on"><table class="fc-border-separate" style="width:100%" cellspacing="0"><thead><tr class="fc-first fc-last"><th class="fc-sun fc-widget-header fc-first" style="width: 173px;">Sun</th><th class="fc-mon fc-widget-header" style="width: 173px;">Mon</th><th class="fc-tue fc-widget-header" style="width: 173px;">Tue</th><th class="fc-wed fc-widget-header" style="width: 173px;">Wed</th><th class="fc-thu fc-widget-header" style="width: 173px;">Thu</th><th class="fc-fri fc-widget-header" style="width: 173px;">Fri</th><th class="fc-sat fc-widget-header fc-last">Sat</th></tr></thead><tbody><tr class="fc-week0 fc-first"><td class="fc-sun fc-widget-content fc-day0 fc-first fc-other-month"><div style="min-height: 145px;"><div class="fc-day-number">28</div><div class="fc-day-content"><div style="position: relative; height: 52px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day1 fc-other-month"><div><div class="fc-day-number">29</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day2 fc-other-month"><div><div class="fc-day-number">30</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day3"><div><div class="fc-day-number">1</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day4"><div><div class="fc-day-number">2</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day5"><div><div class="fc-day-number">3</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day6 fc-last"><div><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week1"><td class="fc-sun fc-widget-content fc-day7 fc-first"><div style="min-height: 144px;"><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position: relative; height: 52px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day8 fc-state-highlight fc-today"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day9"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day10"><div><div class="fc-day-number">8</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day11"><div><div class="fc-day-number">9</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day12"><div><div class="fc-day-number">10</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day13 fc-last"><div><div class="fc-day-number">11</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week2"><td class="fc-sun fc-widget-content fc-day14 fc-first"><div style="min-height: 144px;"><div class="fc-day-number">12</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day15"><div><div class="fc-day-number">13</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day16"><div><div class="fc-day-number">14</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day17"><div><div class="fc-day-number">15</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day18"><div><div class="fc-day-number">16</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day19"><div><div class="fc-day-number">17</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day20 fc-last"><div><div class="fc-day-number">18</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week3"><td class="fc-sun fc-widget-content fc-day21 fc-first"><div style="min-height: 144px;"><div class="fc-day-number">19</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day22"><div><div class="fc-day-number">20</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day23"><div><div class="fc-day-number">21</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day24"><div><div class="fc-day-number">22</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day25"><div><div class="fc-day-number">23</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day26"><div><div class="fc-day-number">24</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day27 fc-last"><div><div class="fc-day-number">25</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week4"><td class="fc-sun fc-widget-content fc-day28 fc-first"><div style="min-height: 144px;"><div class="fc-day-number">26</div><div class="fc-day-content"><div style="position: relative; height: 26px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day29"><div><div class="fc-day-number">27</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day30"><div><div class="fc-day-number">28</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day31"><div><div class="fc-day-number">29</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day32"><div><div class="fc-day-number">30</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day33"><div><div class="fc-day-number">31</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day34 fc-last fc-other-month"><div><div class="fc-day-number">1</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr><tr class="fc-week5 fc-last"><td class="fc-sun fc-widget-content fc-day35 fc-first fc-other-month"><div style="min-height: 145px;"><div class="fc-day-number">2</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-mon fc-widget-content fc-day36 fc-other-month"><div><div class="fc-day-number">3</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-tue fc-widget-content fc-day37 fc-other-month"><div><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-wed fc-widget-content fc-day38 fc-other-month"><div><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-thu fc-widget-content fc-day39 fc-other-month"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-fri fc-widget-content fc-day40 fc-other-month"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td><td class="fc-sat fc-widget-content fc-day41 fc-last fc-other-month"><div><div class="fc-day-number">8</div><div class="fc-day-content"><div style="position:relative">&nbsp;</div></div></div></td></tr></tbody></table><div style="position:absolute;z-index:8;top:0;left:0"><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right" style="position: absolute; z-index: 8; left: 522px; width: 154px; top: 78px;background-color: #A9D86E;border-color: #A9D86E;"><div class="fc-event-inner fc-event-skin" style="
+    border-color: #A9D86E;
+    background-color: #A9D86E;
+"><span class="fc-event-title">Sign Capital One Loan Agreement</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right ui-draggable" style="position: absolute; z-index: 8; left: 868px; width: 154px; top: 78px;background-color: #59ace2;border-color: #59ace2;" unselectable="on"><div class="fc-event-inner fc-event-skin" style="
+    background-color: #59ace2;
+    border-color: #59ace2;
+"><span class="fc-event-time">4p</span><span class="fc-event-title" style="
+    background-color: #59ace2;
+">Send tax returns to Bank of America</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div><div class="fc-event fc-event-skin fc-event-hori fc-event-draggable fc-corner-left fc-corner-right ui-draggable" style="position: absolute; z-index: 8; left: 176px; width: 154px; top: 198px;background-color: #8175c7;border-color: #8175c7;" unselectable="on"><div class="fc-event-inner fc-event-skin" style="
+    background-color: #8175c7;
+    border-color: #8175c7;
+"><span class="fc-event-time">10:30a</span><span class="fc-event-title">Interview with Capital One Loan Officer</span></div><div class="ui-resizable-handle ui-resizable-e">&nbsp;&nbsp;&nbsp;</div></div></div><div class="fc-cell-overlay" style="position: absolute; z-index: 3; top: 177px; left: 346px; width: 173px; height: 145px; display: none;"></div></div></div></div>
+                          </div>
+                      </section>
+                  </aside>
+              </div>
 
               
               
@@ -427,7 +559,7 @@
                           <img alt="" src="img/avatar1.jpg" class="media-object">
                       </a>
                       <div class="media-body">
-                          <strong>Anjelina Joli</strong>
+                          <strong>John Park</strong>
                           <small>Fockland, UK</small>
                       </div>
                   </div><!-- media -->
