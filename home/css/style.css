@@ -370,7 +370,11 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
+<<<<<<< HEAD
     color: #2e2e2e;
+=======
+    color: #004977 !important;
+>>>>>>> b23676f5c73f80e24d5b0a1261589ebb986e786a
 }
 
 
@@ -2849,8 +2853,8 @@ ul.amounts li {
 }
 
 .fc-event-skin {
-    background-color: #6883a3 !important;
-    border-color: #6883a3 !important;
+    background-color: #6883a3 ;
+    border-color: #6883a3 ;
     color: #FFFFFF !important;
 }
 
